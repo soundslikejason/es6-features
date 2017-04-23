@@ -5,7 +5,7 @@
 var name5 = 'Jane Smith';
 var age = 23;
 name5 = 'Jane Miller';
-console.log(name5);
+// console.log(name5);
 
 // // ES6 const variables creates an immutable binding and will produce error
 // const name6 = 'Jane Smith';
@@ -22,7 +22,7 @@ function driversLicense5(passedTest) {
     var yearOfBirth = 1990;
   }
   
-  console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
+  // console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
   
 }
 
@@ -39,30 +39,48 @@ function driversLicense6(passedTest) {
     firstName = 'John';
   }
   
-  console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
+  // console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
 }
 
 driversLicense6(true);
 
 
-// // ES5 - value of i, due to function scoped
-// var i = 23;
-// for (var i = 0; i < 5; i++) {
-//   console.log(i);
-// }
+// ES5 - value of i, due to function scoped
+var i = 23;
+for (var i = 0; i < 5; i++) {
+  // console.log(i);
+}
 // console.log(i);
 
 // ES6 - value of i, due to block scoped
-let i = 23;
-for (let i = 0; i < 5; i++) {
-  console.log(i);
+let j = 23;
+for (let j = 0; j < 5; j++) {
+  // console.log(i);
 }
-console.log(i);
+// console.log(i);
 
 
 
+/////////////////////////////////////////////
+// Lecture: Blocks and IIFEs
+
+// ES6
+{
+  const a = 1;
+  let b = 2;
+  var c = 3;
+}
+
+// console.log(a + b);
+// console.log(c);
 
 
+// ES5
+(function() {
+  var c = 3;
+}());
+
+// console.log(c);
 
 
 
