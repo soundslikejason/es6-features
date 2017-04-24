@@ -96,16 +96,55 @@ function calcAge(year) {
 }
 
 // ES5
-console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old.');
+// console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old.');
 
 // ES6
-console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
+// console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
 
 const n = `${firstName} ${lastName}`;
-console.log(n.startsWith('J'));
-console.log(n.endsWith('th'));
-console.log(n.includes('oh'));
-console.log(`${firstName} `.repeat(5));
+// console.log(n.startsWith('J'));
+// console.log(n.endsWith('th'));
+// console.log(n.includes('oh'));
+// console.log(`${firstName} `.repeat(5));
+
+
+
+/////////////////////////////////////////////////
+// Lecture: Arrow functions
+
+const years = [1990, 1965, 1982, 1937];
+
+// ES5
+var ages5 = years.map(function(el) {
+  return 2017 - el;
+});
+console.log(ages5);
+
+// ES6
+// return is implicit
+let ages6 = years.map(el => 2017 - el);
+console.log(ages6);
+
+// more than one parameter
+ages6 = years.map((el, index) => `Age element ${index + 1}: ${2017 - el}.`);
+console.log(ages6);
+
+// return is explicit for more than one line
+ages6 = years.map((el, index) => {
+  const now = new Date().getFullYear();
+  const age = now - el;
+  return `Age element ${index + 1}: ${age}.`;
+});
+console.log(ages6);
+
+
+
+
+
+
+
+
+
 
 
 
