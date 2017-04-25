@@ -118,16 +118,16 @@ const years = [1990, 1965, 1982, 1937];
 var ages5 = years.map(function(el) {
   return 2017 - el;
 });
-console.log(ages5);
+// console.log(ages5);
 
 // ES6
 // return is implicit
 let ages6 = years.map(el => 2017 - el);
-console.log(ages6);
+// console.log(ages6);
 
 // more than one parameter
 ages6 = years.map((el, index) => `Age element ${index + 1}: ${2017 - el}.`);
-console.log(ages6);
+// console.log(ages6);
 
 // return is explicit for more than one line
 ages6 = years.map((el, index) => {
@@ -135,7 +135,121 @@ ages6 = years.map((el, index) => {
   const age = now - el;
   return `Age element ${index + 1}: ${age}.`;
 });
-console.log(ages6);
+// console.log(ages6);
+
+
+
+///////////////////////////////////////////////
+// Lecture: Arrow functions: lexical 'this' keyword
+
+// ES5
+var box5 = {
+  color: 'green',
+  position: 1,
+  clickMe: function() {
+    // methods have access to 'this' keyword
+    var that = this;
+    document.querySelector('.green').addEventListener('click', function() {
+      var str = 'This is box number ' + that.position + ' and it is ' + that.color;
+      alert(str);
+    });
+    // document.querySelector('.green').addEventListener('click', function() {
+    //   var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+    //   alert(str);
+    // }.bind(this));
+  }
+}
+// box5.clickMe();
+
+
+// ES6
+const box6 = {
+  color: 'green',
+  position: 1,
+  clickMe: function() {
+    // arrow functions do not have their own 'this' keyword
+    document.querySelector('.green').addEventListener('click', () => {
+      var str = `This is box number ${this.position} and it is ${this.color}`;
+      alert(str);
+    });
+  }
+}
+box6.clickMe();
+
+
+// // Be careful using arrow functions on a method.
+// const box66 = {
+//   color: 'green',
+//   position: 1,
+//   clickMe: () => {
+//
+//     document.querySelector('.green').addEventListener('click', () => {
+//       var str = `This is box number ${this.position} and it is ${this.color}`;
+//       alert(str);
+//     });
+//   }
+// }
+// box66.clickMe();
+
+
+function Person(name) {
+  this.name = name;
+}
+
+// ES5
+Person.prototype.myFriends5 = function(friends) {
+
+  var arr = friends.map(function(el) {
+    return this.name + ' is friends with ' + el;
+  }.bind(this));
+
+  console.log(arr);
+}
+
+var friends = ['Bob', 'Jane', 'Mark'];
+new Person('John').myFriends5(friends);
+
+
+// ES6
+Person.prototype.myFriends6 = function(friends) {
+  
+  var arr = friends.map(el => `${this.name} is friends with ${el}`);
+  
+  console.log(arr);
+}
+
+new Person('John').myFriends6(friends);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
