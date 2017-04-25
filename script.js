@@ -1,10 +1,10 @@
 // Lecture: let and const
 
 
-// ES5
-var name5 = 'Jane Smith';
-var age = 23;
-name5 = 'Jane Miller';
+// // ES5
+// var name5 = 'Jane Smith';
+// var age = 23;
+// name5 = 'Jane Miller';
 // console.log(name5);
 
 // // ES6 const variables creates an immutable binding and will produce error
@@ -87,13 +87,13 @@ for (let j = 0; j < 5; j++) {
 ///////////////////////////////////////////////
 // Lecture: Strings
 
-let firstName = 'John';
-let lastName = 'Smith';
-const yearOfBirth = 1990;
-
-function calcAge(year) {
-  return 2016 - year;
-}
+// let firstName = 'John';
+// let lastName = 'Smith';
+// const yearOfBirth = 1990;
+//
+// function calcAge(year) {
+//   return 2016 - year;
+// }
 
 // ES5
 // console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old.');
@@ -101,7 +101,7 @@ function calcAge(year) {
 // ES6
 // console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
 
-const n = `${firstName} ${lastName}`;
+// const n = `${firstName} ${lastName}`;
 // console.log(n.startsWith('J'));
 // console.log(n.endsWith('th'));
 // console.log(n.includes('oh'));
@@ -174,7 +174,7 @@ const box6 = {
     });
   }
 }
-box6.clickMe();
+// box6.clickMe();
 
 
 // // Be careful using arrow functions on a method.
@@ -203,7 +203,7 @@ Person.prototype.myFriends5 = function(friends) {
     return this.name + ' is friends with ' + el;
   }.bind(this));
 
-  console.log(arr);
+  // console.log(arr);
 }
 
 var friends = ['Bob', 'Jane', 'Mark'];
@@ -215,13 +215,50 @@ Person.prototype.myFriends6 = function(friends) {
   
   var arr = friends.map(el => `${this.name} is friends with ${el}`);
   
-  console.log(arr);
+  // console.log(arr);
 }
 
 new Person('John').myFriends6(friends);
 
 
 
+////////////////////////////////////////////
+// Lecture: Destructuring
+
+// ES5
+var john = ['John', 26];
+var name = john[0];
+var age = john [1];
+
+
+// ES6
+const [name2, age2] = ['John', 26];
+console.log(name2);
+console.log(age2);
+
+const obj = {
+  firstName: 'John',
+  lastName: 'Smith'
+};
+
+const {firstName, lastName} = obj;
+console.log(firstName);
+console.log(lastName);
+
+// if you don't want variable names to match key names
+const {firstName: a, lastName: b} = obj;
+console.log(a);
+console.log(b);
+
+
+function calcAgeRetirement(year) {
+  const age = new Date().getFullYear() - year;
+  return [age, 65 - age];
+}
+
+const [age3, retirement] = calcAgeRetirement(1990);
+console.log(age3);
+console.log(retirement);
 
 
 
