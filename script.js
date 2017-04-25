@@ -14,49 +14,49 @@
 // console.log(name6);
 
 
-// ES5 variables are function scoped
-function driversLicense5(passedTest) {
-  // console.log(firstName);
-  if (passedTest) {
-    var firstName = 'John';
-    var yearOfBirth = 1990;
-  }
-  
-  // console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
-  
-}
-
-driversLicense5(true);
-
-
-// ES6 variables are blocked scoped. Can only use variable after declaring and defining.
-function driversLicense6(passedTest) {
-  // console.log(firstName)
-  let firstName = 'John';
-  const yearOfBirth = 1990;
-  
-  if (passedTest) {
-    firstName = 'John';
-  }
-  
-  // console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
-}
-
-driversLicense6(true);
+// // ES5 variables are function scoped
+// function driversLicense5(passedTest) {
+//   console.log(firstName);
+//   if (passedTest) {
+//     var firstName = 'John';
+//     var yearOfBirth = 1990;
+//   }
+//
+//   console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
+//
+// }
+//
+// driversLicense5(true);
 
 
-// ES5 - value of i, due to function scoped
-var i = 23;
-for (var i = 0; i < 5; i++) {
-  // console.log(i);
-}
+// // ES6 variables are blocked scoped. Can only use variable after declaring and defining.
+// function driversLicense6(passedTest) {
+//   console.log(firstName)
+//   let firstName = 'John';
+//   const yearOfBirth = 1990;
+//
+//   if (passedTest) {
+//     firstName = 'John';
+//   }
+//
+//   console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
+// }
+//
+// driversLicense6(true);
+
+
+// // ES5 - value of i, due to function scoped
+// var i = 23;
+// for (var i = 0; i < 5; i++) {
+//   console.log(i);
+// }
 // console.log(i);
-
-// ES6 - value of i, due to block scoped
-let j = 23;
-for (let j = 0; j < 5; j++) {
-  // console.log(i);
-}
+//
+// // ES6 - value of i, due to block scoped
+// let j = 23;
+// for (let j = 0; j < 5; j++) {
+//   console.log(i);
+// }
 // console.log(i);
 
 
@@ -64,22 +64,22 @@ for (let j = 0; j < 5; j++) {
 /////////////////////////////////////////////
 // Lecture: Blocks and IIFEs
 
-// ES6
-{
-  const a = 1;
-  let b = 2;
-  var c = 3;
-}
-
+// // ES6
+// {
+//   const a = 1;
+//   let b = 2;
+//   var c = 3;
+// }
+//
 // console.log(a + b);
 // console.log(c);
-
-
-// ES5
-(function() {
-  var c = 3;
-}());
-
+//
+//
+// // ES5
+// (function() {
+//   var c = 3;
+// }());
+//
 // console.log(c);
 
 
@@ -112,29 +112,29 @@ for (let j = 0; j < 5; j++) {
 /////////////////////////////////////////////////
 // Lecture: Arrow functions
 
-const years = [1990, 1965, 1982, 1937];
-
-// ES5
-var ages5 = years.map(function(el) {
-  return 2017 - el;
-});
+// const years = [1990, 1965, 1982, 1937];
+//
+// // ES5
+// var ages5 = years.map(function(el) {
+//   return 2017 - el;
+// });
 // console.log(ages5);
-
-// ES6
-// return is implicit
-let ages6 = years.map(el => 2017 - el);
+//
+// // ES6
+// // return is implicit
+// let ages6 = years.map(el => 2017 - el);
 // console.log(ages6);
-
-// more than one parameter
-ages6 = years.map((el, index) => `Age element ${index + 1}: ${2017 - el}.`);
+//
+// // more than one parameter
+// ages6 = years.map((el, index) => `Age element ${index + 1}: ${2017 - el}.`);
 // console.log(ages6);
-
-// return is explicit for more than one line
-ages6 = years.map((el, index) => {
-  const now = new Date().getFullYear();
-  const age = now - el;
-  return `Age element ${index + 1}: ${age}.`;
-});
+//
+// // return is explicit for more than one line
+// ages6 = years.map((el, index) => {
+//   const now = new Date().getFullYear();
+//   const age = now - el;
+//   return `Age element ${index + 1}: ${age}.`;
+// });
 // console.log(ages6);
 
 
@@ -142,38 +142,38 @@ ages6 = years.map((el, index) => {
 ///////////////////////////////////////////////
 // Lecture: Arrow functions: lexical 'this' keyword
 
-// ES5
-var box5 = {
-  color: 'green',
-  position: 1,
-  clickMe: function() {
-    // methods have access to 'this' keyword
-    var that = this;
-    document.querySelector('.green').addEventListener('click', function() {
-      var str = 'This is box number ' + that.position + ' and it is ' + that.color;
-      alert(str);
-    });
-    // document.querySelector('.green').addEventListener('click', function() {
-    //   var str = 'This is box number ' + this.position + ' and it is ' + this.color;
-    //   alert(str);
-    // }.bind(this));
-  }
-}
+// // ES5
+// var box5 = {
+//   color: 'green',
+//   position: 1,
+//   clickMe: function() {
+//     // methods have access to 'this' keyword
+//     var that = this;
+//     document.querySelector('.green').addEventListener('click', function() {
+//       var str = 'This is box number ' + that.position + ' and it is ' + that.color;
+//       alert(str);
+//     });
+//     // document.querySelector('.green').addEventListener('click', function() {
+//     //   var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+//     //   alert(str);
+//     // }.bind(this));
+//   }
+// }
 // box5.clickMe();
-
-
-// ES6
-const box6 = {
-  color: 'green',
-  position: 1,
-  clickMe: function() {
-    // arrow functions do not have their own 'this' keyword
-    document.querySelector('.green').addEventListener('click', () => {
-      var str = `This is box number ${this.position} and it is ${this.color}`;
-      alert(str);
-    });
-  }
-}
+//
+//
+// // ES6
+// const box6 = {
+//   color: 'green',
+//   position: 1,
+//   clickMe: function() {
+//     // arrow functions do not have their own 'this' keyword
+//     document.querySelector('.green').addEventListener('click', () => {
+//       var str = `This is box number ${this.position} and it is ${this.color}`;
+//       alert(str);
+//     });
+//   }
+// }
 // box6.clickMe();
 
 
@@ -192,73 +192,73 @@ const box6 = {
 // box66.clickMe();
 
 
-function Person(name) {
-  this.name = name;
-}
-
-// ES5
-Person.prototype.myFriends5 = function(friends) {
-
-  var arr = friends.map(function(el) {
-    return this.name + ' is friends with ' + el;
-  }.bind(this));
-
-  // console.log(arr);
-}
-
-var friends = ['Bob', 'Jane', 'Mark'];
-new Person('John').myFriends5(friends);
-
-
-// ES6
-Person.prototype.myFriends6 = function(friends) {
-  
-  var arr = friends.map(el => `${this.name} is friends with ${el}`);
-  
-  // console.log(arr);
-}
-
-new Person('John').myFriends6(friends);
+// function Person(name) {
+//   this.name = name;
+// }
+//
+// // ES5
+// Person.prototype.myFriends5 = function(friends) {
+//
+//   var arr = friends.map(function(el) {
+//     return this.name + ' is friends with ' + el;
+//   }.bind(this));
+//
+//   console.log(arr);
+// }
+//
+// var friends = ['Bob', 'Jane', 'Mark'];
+// new Person('John').myFriends5(friends);
+//
+//
+// // ES6
+// Person.prototype.myFriends6 = function(friends) {
+//
+//   var arr = friends.map(el => `${this.name} is friends with ${el}`);
+//
+//   console.log(arr);
+// }
+//
+// new Person('John').myFriends6(friends);
 
 
 
 ////////////////////////////////////////////
 // Lecture: Destructuring
 
-// ES5
-var john = ['John', 26];
-var name = john[0];
-var age = john [1];
-
-
-// ES6
-const [name2, age2] = ['John', 26];
-console.log(name2);
-console.log(age2);
-
-const obj = {
-  firstName: 'John',
-  lastName: 'Smith'
-};
-
-const {firstName, lastName} = obj;
-console.log(firstName);
-console.log(lastName);
-
-// if you don't want variable names to match key names
-const {firstName: a, lastName: b} = obj;
-console.log(a);
-console.log(b);
-
-
-function calcAgeRetirement(year) {
-  const age = new Date().getFullYear() - year;
-  return [age, 65 - age];
-}
-
-const [age3, retirement] = calcAgeRetirement(1990);
-console.log(age3);
-console.log(retirement);
+// // ES5
+// var john = ['John', 26];
+// var name = john[0];
+// var age = john [1];
+//
+//
+// // ES6
+// const [name2, age2] = ['John', 26];
+// console.log(name2);
+// console.log(age2);
+//
+// const obj = {
+//   firstName: 'John',
+//   lastName: 'Smith'
+// };
+//
+// const {firstName, lastName} = obj;
+// console.log(firstName);
+// console.log(lastName);
+//
+// // if you don't want variable names to match key names
+// const {firstName: a, lastName: b} = obj;
+// console.log(a);
+// console.log(b);
+//
+//
+// function calcAgeRetirement(year) {
+//   const age = new Date().getFullYear() - year;
+//   return [age, 65 - age];
+// }
+//
+// const [age3, retirement] = calcAgeRetirement(1990);
+// console.log(age3);
+// console.log(retirement);
 
 
 
